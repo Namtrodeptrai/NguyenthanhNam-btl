@@ -164,35 +164,39 @@ void qlyruou::them()
 	chai.insert(ruou,b);
 	cout<<endl <<"Them thanh cong:! "<<endl;
 }
-void qlyruou:: tim()
+void qlyruou::tim()
 {
     int cnt = 0;
     string name;
-    cout << endl
-         << "Tim kiem theo phan loai: ";
+    cout << endl << "Tim kiem theo phan loai: ";
     cin.ignore();
     getline(cin, name);
     list<wine>::iterator ruou;
-    cout << setfill('-');
-    cout << setw(83) << "-" << endl;
-    cout << setfill(' ');
-    cout << "|";
-    cout << left << setw(11) << "Ma ruou";
-    cout << "|";
-    cout << left << setw(20) << "Ten ruou";
-    cout << "|";
-    cout << left << setw(17) << "Gia ";
-    cout << "|";
-    cout << left << setw(17) << "Phan Loai";
-    cout << "|";
-    cout << left << setw(12) << "So luong";
-    cout << "|" << endl;
+    
     for (ruou = chai.begin(); ruou != chai.end(); ruou++)
     {
         wine tmp;
         tmp = *ruou;
         if (name.compare(tmp.getphanloai()) == 0)
         {
+            if (cnt == 0)
+            {
+                cout << setfill('-');
+                cout << setw(83) << "-" << endl;
+                cout << setfill(' ');
+                cout << "|";
+                cout << left << setw(11) << "Ma ruou";
+                cout << "|";
+                cout << left << setw(20) << "Ten ruou";
+                cout << "|";
+                cout << left << setw(17) << "Gia ";
+                cout << "|";
+                cout << left << setw(17) << "Phan Loai";
+                cout << "|";
+                cout << left << setw(12) << "So luong";
+                cout << "|" << endl;
+            }
+            
             cout << "|";
             cout << left << setw(11) << tmp.getmaruou();
             cout << "|";
@@ -207,28 +211,15 @@ void qlyruou:: tim()
             cnt++;
         }
     }
+    
     if (cnt > 0)
     {
         cout << setfill('-');
         cout << setw(83) << "-" << endl;
-        cout << setfill(' ');
     }
-    else if (cnt == 0)
+    else
     {
-        cout << "|";
-        cout << left << setw(11) << "Ko co !";
-        cout << "|";
-        cout << left << setw(20) << "Ko co !";
-        cout << "|";
-        cout << left << setw(17) << "Ko co !";
-        cout << "|";
-        cout << left << setw(17) << "Ko co !";
-        cout << "|";
-        cout << left << setw(12) << "Ko co !";
-        cout << "|" << endl;
-        cout << setfill('-');
-        cout << setw(83) << "-" << endl;
-        cout << setfill(' ');
+        cout << "KHONG CO RUOU LOAI NAY !!" << endl;
     }
 }
 void qlyruou::maxmin()
